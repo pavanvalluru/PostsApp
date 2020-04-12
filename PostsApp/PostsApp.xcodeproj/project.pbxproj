@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1AE64C01244399B700769C69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C00244399B700769C69 /* AppDelegate.swift */; };
 		1AE64C03244399B700769C69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C02244399B700769C69 /* SceneDelegate.swift */; };
-		1AE64C08244399B700769C69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64C06244399B700769C69 /* Main.storyboard */; };
 		1AE64C0A244399B900769C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64C09244399B900769C69 /* Assets.xcassets */; };
 		1AE64C0D244399B900769C69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64C0B244399B900769C69 /* LaunchScreen.storyboard */; };
 		1AE64C18244399BA00769C69 /* PostsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C17244399BA00769C69 /* PostsAppTests.swift */; };
@@ -37,7 +36,6 @@
 		1AE64BFD244399B700769C69 /* PostsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE64C00244399B700769C69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AE64C02244399B700769C69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1AE64C07244399B700769C69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AE64C09244399B900769C69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AE64C0C244399B900769C69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AE64C0E244399B900769C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			children = (
 				1AE64C00244399B700769C69 /* AppDelegate.swift */,
 				1AE64C02244399B700769C69 /* SceneDelegate.swift */,
-				1AE64C06244399B700769C69 /* Main.storyboard */,
 				1AE64C09244399B900769C69 /* Assets.xcassets */,
 				1AE64C0B244399B900769C69 /* LaunchScreen.storyboard */,
 				1AE64C0E244399B900769C69 /* Info.plist */,
@@ -231,7 +228,6 @@
 			files = (
 				1AE64C0D244399B900769C69 /* LaunchScreen.storyboard in Resources */,
 				1AE64C0A244399B900769C69 /* Assets.xcassets in Resources */,
-				1AE64C08244399B700769C69 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +289,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1AE64C06244399B700769C69 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1AE64C07244399B700769C69 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1AE64C0B244399B900769C69 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -416,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -440,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavan.PostsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavan.PostsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
