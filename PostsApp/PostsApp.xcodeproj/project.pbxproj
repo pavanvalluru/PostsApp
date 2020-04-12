@@ -20,6 +20,7 @@
 		1AE64C3F24439E2500769C69 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3824439E2500769C69 /* Presentable.swift */; };
 		1AE64C4024439E2500769C69 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3924439E2500769C69 /* Router.swift */; };
 		1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */; };
+		1AE64C442443A1BB00769C69 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C432443A1BB00769C69 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1AE64C3824439E2500769C69 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		1AE64C3924439E2500769C69 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		1AE64C432443A1BB00769C69 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		1AE64BFF244399B700769C69 /* PostsApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64C422443A1BB00769C69 /* Logger */,
 				1AE64C3024439E2500769C69 /* Coordinator */,
 				1AE64C00244399B700769C69 /* AppDelegate.swift */,
 				1AE64C02244399B700769C69 /* SceneDelegate.swift */,
@@ -165,6 +168,14 @@
 				1AE64C3924439E2500769C69 /* Router.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		1AE64C422443A1BB00769C69 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64C432443A1BB00769C69 /* Logger.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 				1AE64C3E24439E2500769C69 /* BaseTabBarCoordinator.swift in Sources */,
 				1AE64C01244399B700769C69 /* AppDelegate.swift in Sources */,
 				1AE64C3C24439E2500769C69 /* ViewController+Coordinator.swift in Sources */,
+				1AE64C442443A1BB00769C69 /* Logger.swift in Sources */,
 				1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */,
 				1AE64C3D24439E2500769C69 /* BaseRouterCoordinator.swift in Sources */,
 				1AE64C03244399B700769C69 /* SceneDelegate.swift in Sources */,
