@@ -13,6 +13,13 @@
 		1AE64C0D244399B900769C69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64C0B244399B900769C69 /* LaunchScreen.storyboard */; };
 		1AE64C18244399BA00769C69 /* PostsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C17244399BA00769C69 /* PostsAppTests.swift */; };
 		1AE64C23244399BA00769C69 /* PostsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C22244399BA00769C69 /* PostsAppUITests.swift */; };
+		1AE64C3B24439E2500769C69 /* CoordinatorFinishFlowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3124439E2500769C69 /* CoordinatorFinishFlowProtocol.swift */; };
+		1AE64C3C24439E2500769C69 /* ViewController+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3324439E2500769C69 /* ViewController+Coordinator.swift */; };
+		1AE64C3D24439E2500769C69 /* BaseRouterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3524439E2500769C69 /* BaseRouterCoordinator.swift */; };
+		1AE64C3E24439E2500769C69 /* BaseTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3624439E2500769C69 /* BaseTabBarCoordinator.swift */; };
+		1AE64C3F24439E2500769C69 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3824439E2500769C69 /* Presentable.swift */; };
+		1AE64C4024439E2500769C69 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3924439E2500769C69 /* Router.swift */; };
+		1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,13 @@
 		1AE64C1E244399BA00769C69 /* PostsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE64C22244399BA00769C69 /* PostsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAppUITests.swift; sourceTree = "<group>"; };
 		1AE64C24244399BA00769C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE64C3124439E2500769C69 /* CoordinatorFinishFlowProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinatorFinishFlowProtocol.swift; path = Extensions/CoordinatorFinishFlowProtocol.swift; sourceTree = "<group>"; };
+		1AE64C3324439E2500769C69 /* ViewController+Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Coordinator.swift"; sourceTree = "<group>"; };
+		1AE64C3524439E2500769C69 /* BaseRouterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseRouterCoordinator.swift; path = NavControllerCoordinator/BaseRouterCoordinator.swift; sourceTree = "<group>"; };
+		1AE64C3624439E2500769C69 /* BaseTabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTabBarCoordinator.swift; path = NavControllerCoordinator/BaseTabBarCoordinator.swift; sourceTree = "<group>"; };
+		1AE64C3824439E2500769C69 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		1AE64C3924439E2500769C69 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +109,7 @@
 		1AE64BFF244399B700769C69 /* PostsApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64C3024439E2500769C69 /* Coordinator */,
 				1AE64C00244399B700769C69 /* AppDelegate.swift */,
 				1AE64C02244399B700769C69 /* SceneDelegate.swift */,
 				1AE64C09244399B900769C69 /* Assets.xcassets */,
@@ -120,6 +135,36 @@
 				1AE64C24244399BA00769C69 /* Info.plist */,
 			);
 			path = PostsAppUITests;
+			sourceTree = "<group>";
+		};
+		1AE64C3024439E2500769C69 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64C3624439E2500769C69 /* BaseTabBarCoordinator.swift */,
+				1AE64C3524439E2500769C69 /* BaseRouterCoordinator.swift */,
+				1AE64C3724439E2500769C69 /* Router */,
+				1AE64C3224439E2500769C69 /* Extensions */,
+				1AE64C3124439E2500769C69 /* CoordinatorFinishFlowProtocol.swift */,
+				1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1AE64C3224439E2500769C69 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64C3324439E2500769C69 /* ViewController+Coordinator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1AE64C3724439E2500769C69 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64C3824439E2500769C69 /* Presentable.swift */,
+				1AE64C3924439E2500769C69 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,8 +297,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE64C4024439E2500769C69 /* Router.swift in Sources */,
+				1AE64C3B24439E2500769C69 /* CoordinatorFinishFlowProtocol.swift in Sources */,
+				1AE64C3E24439E2500769C69 /* BaseTabBarCoordinator.swift in Sources */,
 				1AE64C01244399B700769C69 /* AppDelegate.swift in Sources */,
+				1AE64C3C24439E2500769C69 /* ViewController+Coordinator.swift in Sources */,
+				1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */,
+				1AE64C3D24439E2500769C69 /* BaseRouterCoordinator.swift in Sources */,
 				1AE64C03244399B700769C69 /* SceneDelegate.swift in Sources */,
+				1AE64C3F24439E2500769C69 /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
