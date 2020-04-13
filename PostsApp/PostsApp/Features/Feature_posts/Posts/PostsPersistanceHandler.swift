@@ -1,5 +1,5 @@
 //
-//  PersistanceHandler.swift
+//  PostsPersistanceHandler.swift
 //  PostsApp
 //
 //  Created by Pavan Kumar Valluru on 13.04.20.
@@ -8,22 +8,16 @@
 
 import Foundation
 
-protocol Persistance {
-    func setFavoriteState(to state: Bool, for post: Post)
-    func isFavorite(post: Post) -> Bool
-    func getAllFavorites() -> [Post]
-    func removeAllFavorites()
-}
+public class PostsPersistanceHandler: PostPersistance {
 
-class PersistanceHandler: Persistance {
-
-    static let shared = PersistanceHandler()
+    static let shared = PostsPersistanceHandler()
 
     private init() { }
 
+    // can bbe provided with setup method
     private var persistanceProvider: PersistanceProvider = UserDefaultsPersistance()
 
-    func setFavoriteState(to state: Bool, for post: Post) {
+    public func setFavoriteState(to state: Bool, for post: Post) {
         var favorites = getAllFavorites()
         if state {
             favorites.append(post)
@@ -39,11 +33,11 @@ class PersistanceHandler: Persistance {
         }
     }
 
-    func isFavorite(post: Post) -> Bool {
+    public func isFavorite(post: Post) -> Bool {
         return getAllFavorites().contains(post)
     }
 
-    func getAllFavorites() -> [Post] {
+    public func getAllFavorites() -> [Post] {
         if let data = persistanceProvider.getFavoritesData(),
             let favorites = try? JSONDecoder().decode([Post].self, from: data) {
             return favorites
@@ -51,7 +45,7 @@ class PersistanceHandler: Persistance {
         return []
     }
 
-    func removeAllFavorites() {
+    public func removeAllFavorites() {
         do {
             let array: [Post] = []
             let encoder = JSONEncoder()
@@ -60,23 +54,5 @@ class PersistanceHandler: Persistance {
         } catch {
             print("Can't encode data: \(error)")
         }
-    }
-}
-
-protocol PersistanceProvider  {
-    func saveObjectToFavorites(data: Data?)
-    func getFavoritesData() -> Data?
-}
-
-class UserDefaultsPersistance: PersistanceProvider {
-
-    private let key = "Favorites"
-
-    func getFavoritesData() -> Data? {
-        return UserDefaults.standard.data(forKey: key)
-    }
-
-    func saveObjectToFavorites(data: Data?) {
-        UserDefaults.standard.set(data, forKey: key)
     }
 }

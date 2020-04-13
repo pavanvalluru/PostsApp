@@ -45,8 +45,9 @@ class PostTableCell: UITableViewCell {
         return lbl
     }()
 
-    private var favoriteHandler: Persistance?
+    private var favoriteHandler: PostPersistance?
     private var post: Post?
+    private var favoritesUpdatable: FavoritesUpdatable?
 
     private var isFavorite: Bool = false {
         didSet {
@@ -114,11 +115,13 @@ class PostTableCell: UITableViewCell {
         if let post = self.post, let favHndler = favoriteHandler {
             favHndler.setFavoriteState(to: isFavorite, for: post)
         }
+        self.favoritesUpdatable?.updateFavoritesView()
     }
 
-    func setup(for post: Post, favoriteHandler: Persistance?) {
+    func setup(for post: Post, favoriteHandler: PostPersistance?, updateDelegate: FavoritesUpdatable?) {
         self.post = post
         self.favoriteHandler = favoriteHandler
+        self.favoritesUpdatable = updateDelegate
         isFavorite = favoriteHandler?.isFavorite(post: post) ?? false
 
         titleLabel.text = post.title.capitalized

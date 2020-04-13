@@ -8,15 +8,22 @@
 
 import UIKit
 
+public protocol PostPersistance {
+    func setFavoriteState(to state: Bool, for post: Post)
+    func isFavorite(post: Post) -> Bool
+    func getAllFavorites() -> [Post]
+    func removeAllFavorites()
+}
+
 class PostsCoordinator: BaseTabBarCoordinator {
 
     var onCoordinatorFinished: ((String) -> Void)?
 
     let userId: String
 
-    var favoritesHandler: Persistance
+    var favoritesHandler: PostPersistance
 
-    init(for userId: String, persistance: Persistance = PersistanceHandler.shared) {
+    init(for userId: String, persistance: PostPersistance) {
         self.userId = userId
         self.favoritesHandler = persistance
     }

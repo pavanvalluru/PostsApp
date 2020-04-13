@@ -33,11 +33,11 @@ public class PostsFeature {
         }
     }
 
-    public class func setup(userId: String, networkConfig: NetworkConfigurable) -> Coordinator {
+    public class func setup(userId: String, networkConfig: NetworkConfigurable, persistance: PostPersistance) -> Coordinator {
         let config = Config(networkConfig: networkConfig, userId: userId)
         PostsFeature.config = config
 
-        return PostsCoordinator(for: userId)
+        return PostsCoordinator(for: userId, persistance: PostsPersistanceHandler.shared)
     }
 
 }

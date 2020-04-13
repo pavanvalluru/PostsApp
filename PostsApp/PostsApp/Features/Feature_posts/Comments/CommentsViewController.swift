@@ -104,7 +104,9 @@ extension CommentsViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableCell.self)) ??
                 PostTableCell(style: .default, reuseIdentifier: String(describing: PostTableCell.self))
-            (cell as? PostTableCell)?.setup(for: commentsViewModel.post, favoriteHandler: commentsViewModel.favoriteHandler)
+            (cell as? PostTableCell)?.setup(for: commentsViewModel.post,
+                                            favoriteHandler: commentsViewModel.favoriteHandler,
+                                            updateDelegate: nil)
              return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentsTableCell.self)) ??

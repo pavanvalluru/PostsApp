@@ -29,7 +29,6 @@ public class ClientService: NSObject, ResponseRequestable {
         guard let request = httpClient.urlRequest(for: endPoint) else {
             return
         }
-        print(request)
         httpClient.get(request: request) { data, error in
             guard error == nil else {
                 completion(.failure(error!))

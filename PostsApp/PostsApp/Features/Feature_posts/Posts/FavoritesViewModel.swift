@@ -14,9 +14,9 @@ class FavoritesViewModel: PostsProvider {
 
     var onItemSelected: ((Post) -> Void)?
 
-    var favoriteHandler: Persistance?
+    var favoriteHandler: PostPersistance?
 
-    init(favoriteHandler: Persistance?) {
+    init(favoriteHandler: PostPersistance?) {
         self.favoriteHandler = favoriteHandler
     }
 

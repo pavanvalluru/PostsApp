@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FavoritesUpdatable {
+    func updateFavoritesView()
+}
+
 class PostsViewController: UITableViewController {
 
     private let postsViewModel: PostsProvider
@@ -33,6 +37,10 @@ class PostsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        updateContent()
+    }
+
+    private func updateContent() {
         self.loadingIndicator.startAnimating()
         postsViewModel.fetchPosts() { [weak self] res in
             DispatchQueue.main.async {
@@ -47,10 +55,6 @@ class PostsViewController: UITableViewController {
                 }
             }
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
 
     // MARK: GUI setup methods
@@ -95,7 +99,9 @@ extension PostsViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableCell.self)) ??
             PostTableCell(style: .default, reuseIdentifier: String(describing: PostTableCell.self))
         if postsViewModel.posts.count > indexPath.row {
-            (cell as? PostTableCell)?.setup(for: postsViewModel.posts[indexPath.row], favoriteHandler: postsViewModel.favoriteHandler)
+            (cell as? PostTableCell)?.setup(for: postsViewModel.posts[indexPath.row],
+                                            favoriteHandler: postsViewModel.favoriteHandler,
+                                            updateDelegate: self)
         }
         return cell
     }
@@ -103,5 +109,13 @@ extension PostsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = postsViewModel.posts[indexPath.row]
         postsViewModel.onItemSelected?(post)
+    }
+}
+
+extension PostsViewController: FavoritesUpdatable {
+    func updateFavoritesView() {
+        if postsViewModel is FavoritesViewModel {
+            self.updateContent()
+        }
     }
 }
