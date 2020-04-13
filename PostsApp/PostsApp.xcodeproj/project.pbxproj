@@ -37,6 +37,7 @@
 		1AE64C742444991800769C69 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C732444991800769C69 /* PostsViewController.swift */; };
 		1AE64C762444994100769C69 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C752444994100769C69 /* FavoritesViewModel.swift */; };
 		1AE64C7824449A0000769C69 /* PostsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C7724449A0000769C69 /* PostsProviderProtocol.swift */; };
+		1AE64C7C2444A9DF00769C69 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C7B2444A9DF00769C69 /* UITextField+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		1AE64C732444991800769C69 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		1AE64C752444994100769C69 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		1AE64C7724449A0000769C69 /* PostsProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsProviderProtocol.swift; sourceTree = "<group>"; };
+		1AE64C7B2444A9DF00769C69 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 				1AE64C652444938700769C69 /* LoginCoordinator.swift */,
 				1AE64C6D2444988600769C69 /* LoginViewModel.swift */,
 				1AE64C6F244498B200769C69 /* LoginViewController.swift */,
+				1AE64C7B2444A9DF00769C69 /* UITextField+Extensions.swift */,
 			);
 			path = Feature_login;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				1AE64C662444938700769C69 /* LoginCoordinator.swift in Sources */,
 				1AE64C4024439E2500769C69 /* Router.swift in Sources */,
 				1AE64C582443A87600769C69 /* AppConfig.swift in Sources */,
+				1AE64C7C2444A9DF00769C69 /* UITextField+Extensions.swift in Sources */,
 				1AE64C5A2443C13E00769C69 /* Loggable.swift in Sources */,
 				1AE64C3B24439E2500769C69 /* CoordinatorFinishFlowProtocol.swift in Sources */,
 				1AE64C642444907700769C69 /* PostsCoordinator.swift in Sources */,

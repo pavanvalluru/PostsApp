@@ -8,7 +8,44 @@
 
 import Foundation
 
-class LoginViewModel {
+protocol LoginProvider: AnyObject {
+    func login(userId: String, password: String?, onCompletion: @escaping (() -> Void))
+}
+
+enum LoginError: LocalizedError {
+    case invalidCredentials
+    case noNetwork
+
+    var errorDescription: String? {
+        return "error message!"
+    }
+}
+
+class LoginViewModel: LoginProvider {
+    var onFailed: ((Error) -> Void)?
     var onFinished: (() -> Void)?
-    
+
+    func login(userId: String, password: String?, onCompletion: @escaping (() -> Void)) {
+        let result = validateUserCredentials(id: userId, password: password)
+        DispatchQueue.main.async {
+            switch result{
+            case.success(_):
+                self.onFinished?()
+            case .failure(let error):
+                self.onFailed?(error)
+            }
+            onCompletion()
+        }
+    }
+
+    private func validateUserCredentials(id: String, password: String?) -> Result<String, Error> {
+        guard !id.isEmpty else {
+            return .failure(LoginError.invalidCredentials)
+        }
+        return .success("access_token")
+    }
+}
+
+class LoginHandler {
+
 }
