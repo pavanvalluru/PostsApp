@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol Presentable {
+public protocol Presentable {
     func toPresent() -> UIViewController?
 }

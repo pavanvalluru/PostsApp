@@ -12,7 +12,7 @@ import UIKit
 typealias DataResponse = (data: Data?, urlResponse: URLResponse?, error: Error?)
 
 // This is needed for UITesting
-class MockURLSession: URLSession {
+public class MockURLSession: URLSession {
 
     var nextDataTask = MockURLSessionDataTask()
     var nextDownloadTask = MockURLSessionDownloadTask()
@@ -44,7 +44,7 @@ class MockURLSession: URLSession {
 
     // MARK: - API
 
-    override func dataTask(with request: URLRequest,
+    public override func dataTask(with request: URLRequest,
                            completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         lastURL = request.url
 
@@ -60,7 +60,7 @@ class MockURLSession: URLSession {
         return nextDataTask
     }
 
-    override func downloadTask(with request: URLRequest,
+    public override func downloadTask(with request: URLRequest,
                                completionHandler: @escaping (URL?, URLResponse?, Error?) -> Void)
         -> URLSessionDownloadTask {
             lastURL = request.url

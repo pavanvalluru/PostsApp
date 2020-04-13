@@ -17,10 +17,13 @@ class AppCoordinator: Coordinator {
     }
 
     func startLoginFeature() {
-        let loginCoord = LoginCoordinator()
-        loginCoord.onCoordinatorFinished = {
+        guard let loginCoord = LoginFeature.setup(networkConfig: AppConfig.networkConfig) as? LoginCoordinator else {
+            AppConfig.networkConfig.logger?.error("invalid login feature setup")
+            fatalError("invalid login feature setup")
+        }
+        loginCoord.onCoordinatorFinished = { id in
             self.removeAllChildCoordinators()
-            self.startPostsFeature()
+            self.startPostsFeature(for: id)
         }
         loginCoord.start(presentationHandler: { vc in
             self.addChildCoordinator(loginCoord)
@@ -30,8 +33,8 @@ class AppCoordinator: Coordinator {
         })
     }
 
-    func startPostsFeature() {
-        let postsCoord = PostsCoordinator()
+    func startPostsFeature(for user: String) {
+        let postsCoord = PostsFeature.setup(userId: user, networkConfig: AppConfig.networkConfig)
         postsCoord.start( presentationHandler: { vc in
             self.addChildCoordinator(postsCoord)
             if let vc = vc.toPresent() {

@@ -10,6 +10,12 @@ import UIKit
 
 class PostsCoordinator: BaseTabBarCoordinator {
 
+    let userId: String
+
+    init(for userId: String) {
+        self.userId = userId
+    }
+
     override func start(presentationHandler: ((Presentable) -> Void)) {
         setupTabBarItems()
         presentationHandler(tabBarController)
@@ -17,14 +23,14 @@ class PostsCoordinator: BaseTabBarCoordinator {
 
     private func setupTabBarItems() {
         // first tab
-        let allPostsVM = PostsViewModel()
+        let allPostsVM = PostsViewModel(for: self.userId, favoriteHandler: nil)
         let firstTabVC = PostsViewController(viewModel: allPostsVM)
         let firstTabNavC = UINavigationController(rootViewController: firstTabVC)
         firstTabNavC.tabBarItem.title = "My Posts"
         self.appendToTabBar(presentable: firstTabNavC)
 
         // second tab
-        let favoritesVM = FavoritesViewModel()
+        let favoritesVM = FavoritesViewModel(favoriteHandler: nil, fetchHandler: nil)
         let secondTabVC = PostsViewController(viewModel: favoritesVM)
         let secondTabNavC = UINavigationController(rootViewController: secondTabVC)
         secondTabNavC.tabBarItem.title = "Favorites"

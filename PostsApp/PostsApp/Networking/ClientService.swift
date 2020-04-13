@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-protocol ResponseRequestable: AnyObject {
+public protocol ResponseRequestable: AnyObject {
     func getDecodedResponse<T: Decodable>(from endPoint: Requestable, objectType: T.Type, completion: @escaping (Result<T, Error>) -> Void)
 }
 
-class ClientService: NSObject, ResponseRequestable {
+
+public class ClientService: NSObject, ResponseRequestable {
 
     private let decoder = JSONDecoder()
     private let httpClient: HTTPService
@@ -24,7 +25,7 @@ class ClientService: NSObject, ResponseRequestable {
         self.httpClient = HTTPService(config: config)
     }
 
-    func getDecodedResponse<T: Decodable>(from endPoint: Requestable, objectType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    public func getDecodedResponse<T: Decodable>(from endPoint: Requestable, objectType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         guard let request = httpClient.urlRequest(for: endPoint) else {
             return
         }

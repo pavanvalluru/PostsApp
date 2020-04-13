@@ -10,7 +10,7 @@ import UIKit
 
 class LoginCoordinator: BaseRouterCoordinator {
 
-    var onCoordinatorFinished: (() -> Void)?
+    var onCoordinatorFinished: ((String) -> Void)?
 
     override func start(presentationHandler: ((Presentable) -> Void)) {
         presentationHandler(setupLoginView())

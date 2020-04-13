@@ -10,31 +10,29 @@ import UIKit
 
 final class AppConfig {
 
-    lazy var baseURLString: String = {
-        return "https://jsonplaceholder.typicode.com/"
-    }()
-
     static var isRunningUITest: Bool {
         return ProcessInfo().arguments.contains("UITesting")
     }
 
-    static func setupAppearance() {
-        let standard = UINavigationBarAppearance()
-        standard.configureWithOpaqueBackground()
-        standard.backgroundColor = Color.ThemeColor
-        standard.titleTextAttributes = [.foregroundColor: Color.TintColor]
-        UINavigationBar.appearance().standardAppearance = standard
-
-        // Set color of titles and icons in tabBar
-        UITabBar.appearance().tintColor = Color.TintColor
-        // Set color of background tabBar
-        UITabBar.appearance().barTintColor = Color.ThemeColor
+    static var networkConfig: NetworkConfigurable {
+        DefaultNetworkConfig()
     }
-
-    enum Color {
-        static let ThemeColor = UIColor(red: 76/255.0, green: 114/255.0, blue: 190/255.0, alpha: 1.0)
-        static let TintColor = UIColor.white
-    }
-
 }
 
+class DefaultNetworkConfig: NetworkConfigurable {
+    var baseURL: URL {
+        guard let baseUrl = URL(string: "https://jsonplaceholder.typicode.com/") else {
+            fatalError("invalid base url")
+        }
+        return baseUrl
+    }
+    var headers: [String: String] {
+        return [:]
+    }
+    var urlSession: URLSession {
+        AppConfig.isRunningUITest ? MockURLSession() : URLSession.shared
+    }
+    var logger: Logger? {
+        Logger()
+    }
+}

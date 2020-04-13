@@ -8,6 +8,29 @@
 
 import Foundation
 
+protocol FavoriteHandler {
+    func setFavoriteState(to state: Bool, for post: Post)
+    func isFavorite(post: Post) -> Bool
+}
+
+protocol FavoritesFetchHandler {
+    func getAllFavoritePosts() -> [Post]
+}
+
 class FavoritesViewModel: PostsProvider {
-    
+    var posts: [Post] = []
+
+    var favoriteHandler: FavoriteHandler?
+
+    var fetchHandler: FavoritesFetchHandler?
+
+    init(favoriteHandler: FavoriteHandler?, fetchHandler: FavoritesFetchHandler?) {
+        self.favoriteHandler = favoriteHandler
+        self.fetchHandler = fetchHandler
+    }
+
+    func fetchPosts(onCompletion: @escaping (Result<Bool, Error>) -> Void) {
+        posts = fetchHandler?.getAllFavoritePosts() ?? []
+        onCompletion(.success(true))
+    }
 }

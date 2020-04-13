@@ -23,14 +23,14 @@ enum LoginError: LocalizedError {
 
 class LoginViewModel: LoginProvider {
     var onFailed: ((Error) -> Void)?
-    var onFinished: (() -> Void)?
+    var onFinished: ((String) -> Void)?
 
     func login(userId: String, password: String?, onCompletion: @escaping (() -> Void)) {
         let result = validateUserCredentials(id: userId, password: password)
         DispatchQueue.main.async {
             switch result{
             case.success(_):
-                self.onFinished?()
+                self.onFinished?(userId)
             case .failure(let error):
                 self.onFailed?(error)
             }

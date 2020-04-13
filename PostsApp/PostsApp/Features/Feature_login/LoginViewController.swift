@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         let field = UITextField()
         field.placeholder = "z.B: \"1\""
         field.returnKeyType = .done
-        field.setBottomBorder(with: AppConfig.Color.ThemeColor)
+        field.setBottomBorder(with: AppAppearance.Color.ThemeColor)
         return field
     }()
 
@@ -38,8 +38,8 @@ class LoginViewController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("LOGIN", for: .normal)
-        button.backgroundColor = AppConfig.Color.ThemeColor
-        button.setTitleColor(AppConfig.Color.TintColor, for: .normal)
+        button.backgroundColor = AppAppearance.Color.ThemeColor
+        button.setTitleColor(AppAppearance.Color.TintColor, for: .normal)
         button.addTarget(self, action: #selector(LoginViewController.loginTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
