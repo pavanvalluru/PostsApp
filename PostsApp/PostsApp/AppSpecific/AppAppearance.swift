@@ -18,13 +18,13 @@ final class AppAppearance {
         UINavigationBar.appearance().standardAppearance = standard
 
         // Set color of titles and icons in tabBar
-        UITabBar.appearance().tintColor = Color.TintColor
+        UITabBar.appearance().tintColor = Color.ThemeColor
         // Set color of background tabBar
-        UITabBar.appearance().barTintColor = Color.ThemeColor
+        UITabBar.appearance().barTintColor = Color.TintColor
     }
 
     enum Color {
-        static let ThemeColor = UIColor(named: "ThemeColor")
+        static let ThemeColor = UIColor(named: "ThemeColor") ?? UIColor.blue
         static let TintColor = UIColor.white
     }
 }

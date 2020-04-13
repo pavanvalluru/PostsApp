@@ -49,10 +49,7 @@ class AppCoordinator: Coordinator {
         if let sd: SceneDelegate = (scene?.delegate as? SceneDelegate),
             let window = sd.window {
             window.rootViewController?.dismiss(animated: false, completion: nil)
-
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                window.rootViewController = newController
-            }, completion: nil)
+            window.rootViewController = newController
         }
     }
 }

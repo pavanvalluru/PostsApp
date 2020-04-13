@@ -18,6 +18,7 @@ protocol FavoritesFetchHandler {
 }
 
 class FavoritesViewModel: PostsProvider {
+    var title: String = "Favorites"
     var posts: [Post] = []
 
     var favoriteHandler: FavoriteHandler?

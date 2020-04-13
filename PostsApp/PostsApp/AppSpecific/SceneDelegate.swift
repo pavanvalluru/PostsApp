@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         appCoordinator = AppCoordinator()
 
+        AppAppearance.setupAppearance()
+
         appCoordinator.start(presentationHandler: { vc in
             window?.rootViewController = vc.toPresent()
         })

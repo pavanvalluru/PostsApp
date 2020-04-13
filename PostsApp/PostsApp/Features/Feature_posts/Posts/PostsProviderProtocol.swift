@@ -9,6 +9,7 @@
 import Foundation
 
 protocol PostsProvider: FavoritesProvider {
+    var title: String { get }
     var posts: [Post] { get }
     func fetchPosts(onCompletion: @escaping (Result<Void, Error>) -> Void)
 }

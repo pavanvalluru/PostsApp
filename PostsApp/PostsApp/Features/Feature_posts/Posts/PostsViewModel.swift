@@ -9,6 +9,7 @@
 import Foundation
 
 class PostsViewModel: PostsProvider {
+    var title: String = "My Posts"
     var posts: [Post] = []
     var favoriteHandler: FavoriteHandler?
 
