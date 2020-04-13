@@ -40,18 +40,9 @@ func print(_ object: Any) {
     #endif
 }
 
-class Log {
+public class Logger: Loggable {
 
-    static var dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
-    static var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = dateFormat
-        formatter.locale = Locale.current
-        formatter.timeZone = TimeZone.current
-        return formatter
-    }
-
-    private static var isLoggingEnabled: Bool {
+    private var isLoggingEnabled: Bool {
         #if DEBUG
         return true
         #else
@@ -69,7 +60,7 @@ class Log {
     ///   - line: Line number in file from where the logging is done
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
-    class func error( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
+    public func error( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
                       funcName: String = #function) {
         if isLoggingEnabled {
             printFormatted(object, logEvent: .error, filename: filename,
@@ -85,7 +76,7 @@ class Log {
     ///   - line: Line number in file from where the logging is done
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
-    class func info( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
+    public func info( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
                      funcName: String = #function) {
         if isLoggingEnabled {
             printFormatted(object, logEvent: .info, filename: filename,
@@ -101,7 +92,7 @@ class Log {
     ///   - line: Line number in file from where the logging is done
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
-    class func debug( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
+    public func debug( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
                       funcName: String = #function) {
         if isLoggingEnabled {
             printFormatted(object, logEvent: .debug, filename: filename,
@@ -117,7 +108,7 @@ class Log {
     ///   - line: Line number in file from where the logging is done
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
-    class func verbose( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
+    public func verbose( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
                         funcName: String = #function) {
         if isLoggingEnabled {
             printFormatted(object, logEvent: .verbose, filename: filename,
@@ -133,7 +124,7 @@ class Log {
     ///   - line: Line number in file from where the logging is done
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
-    class func warning( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
+    public func warning( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
                         funcName: String = #function) {
         if isLoggingEnabled {
             printFormatted(object, logEvent: .warning, filename: filename,
@@ -149,7 +140,7 @@ class Log {
     ///   - line: Line number in file from where the logging is done
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
-    class func severe( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
+    public func severe( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column,
                        funcName: String = #function) {
         if isLoggingEnabled {
             printFormatted(object, logEvent: .severe, filename: filename,
@@ -161,7 +152,7 @@ class Log {
     ///
     /// - Parameter filePath: Full file path in bundle
     /// - Returns: File Name with extension
-    private class func sourceFileName(filePath: String) -> String {
+    private func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
         return components.isEmpty ? "" : components.last!
     }
@@ -176,7 +167,7 @@ class Log {
     ///   - column: Column number of the log message
     ///   - funcName: Name of the function from where the logging is done
     // swiftlint:disable function_parameter_count
-    private class func printFormatted( _ object: Any, logEvent: LogEvent, filename: String, line: Int, column: Int,
+    private func printFormatted( _ object: Any, logEvent: LogEvent, filename: String, line: Int, column: Int,
                                        funcName: String) {
     // swiftlint:enable function_parameter_count
         print("\(Date().toString()) \(logEvent.rawValue)[\(sourceFileName(filePath: filename))]:\(line) \(column) \(funcName) -> \(object)")
@@ -184,7 +175,16 @@ class Log {
 }
 
 internal extension Date {
+
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
+        formatter.locale = Locale.current
+        formatter.timeZone = TimeZone.current
+        return formatter
+    }
+
     func toString() -> String {
-        return Log.dateFormatter.string(from: self as Date)
+        return dateFormatter.string(from: self as Date)
     }
 }
