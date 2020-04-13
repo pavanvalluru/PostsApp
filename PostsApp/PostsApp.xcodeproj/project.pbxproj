@@ -24,8 +24,10 @@
 		1AE64C4F2443A72500769C69 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C472443A72500769C69 /* MockURLSession.swift */; };
 		1AE64C582443A87600769C69 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C572443A87600769C69 /* AppConfig.swift */; };
 		1AE64C5A2443C13E00769C69 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C592443C13E00769C69 /* Loggable.swift */; };
+		1AE64C5D2444735A00769C69 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C5B2444735A00769C69 /* ClientService.swift */; };
 		1AE64C5E2444735A00769C69 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C5C2444735A00769C69 /* HTTPService.swift */; };
 		1AE64C60244473D600769C69 /* HTTPServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C5F244473D600769C69 /* HTTPServiceTests.swift */; };
+		1AE64C62244473EC00769C69 /* ClientServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C61244473EC00769C69 /* ClientServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +71,10 @@
 		1AE64C472443A72500769C69 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		1AE64C572443A87600769C69 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		1AE64C592443C13E00769C69 /* Loggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
+		1AE64C5B2444735A00769C69 /* ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
 		1AE64C5C2444735A00769C69 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		1AE64C5F244473D600769C69 /* HTTPServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceTests.swift; sourceTree = "<group>"; };
+		1AE64C61244473EC00769C69 /* ClientServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				1AE64C17244399BA00769C69 /* PostsAppTests.swift */,
 				1AE64C19244399BA00769C69 /* Info.plist */,
 				1AE64C5F244473D600769C69 /* HTTPServiceTests.swift */,
+				1AE64C61244473EC00769C69 /* ClientServiceTests.swift */,
 			);
 			path = PostsAppTests;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 		1AE64C452443A72500769C69 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64C5B2444735A00769C69 /* ClientService.swift */,
 				1AE64C5C2444735A00769C69 /* HTTPService.swift */,
 				1AE64C462443A72500769C69 /* Mocks */,
 			);
@@ -352,6 +358,7 @@
 				1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */,
 				1AE64C3D24439E2500769C69 /* BaseRouterCoordinator.swift in Sources */,
 				1AE64C03244399B700769C69 /* SceneDelegate.swift in Sources */,
+				1AE64C5D2444735A00769C69 /* ClientService.swift in Sources */,
 				1AE64C3F24439E2500769C69 /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE64C62244473EC00769C69 /* ClientServiceTests.swift in Sources */,
 				1AE64C18244399BA00769C69 /* PostsAppTests.swift in Sources */,
 				1AE64C60244473D600769C69 /* HTTPServiceTests.swift in Sources */,
 			);

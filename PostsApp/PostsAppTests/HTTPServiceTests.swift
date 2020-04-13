@@ -14,7 +14,6 @@ class HTTPServiceTests: XCTestCase {
     var sut: HTTPService!
     var testConfig = TestConfig()
 
-
     override func setUpWithError() throws {
         sut = HTTPService(config: testConfig)
     }
