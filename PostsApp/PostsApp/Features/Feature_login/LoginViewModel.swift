@@ -46,6 +46,7 @@ class LoginViewModel: LoginProvider {
     }
 }
 
+// This may take over network call or offline login etc.
 class LoginHandler {
 
 }
