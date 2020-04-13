@@ -1,5 +1,5 @@
 //
-//  ViewController+Coordinator.swift
+//  Presentable.swift
 //  PostsApp
 //
 //  Created by Pavan Kumar Valluru on 12.04.20.
@@ -8,8 +8,6 @@
 
 import UIKit
 
-extension UIViewController: Presentable {
-    func toPresent() -> UIViewController? {
-        return self
-    }
+public protocol Presentable {
+    func toPresent() -> UIViewController?
 }

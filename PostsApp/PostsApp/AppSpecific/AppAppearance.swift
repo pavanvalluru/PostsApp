@@ -1,35 +1,32 @@
 //
-//  AppConfig.swift
+//  AppAppearance.swift
 //  PostsApp
 //
-//  Created by Pavan Kumar Valluru on 12.04.20.
+//  Created by Pavan Kumar Valluru on 13.04.20.
 //  Copyright © 2020 Pavan Kumar Valluru. All rights reserved.
 //
 
 import UIKit
 
-final class AppConfig {
-
-    lazy var baseURLString: String = {
-        return "https://jsonplaceholder.typicode.com/"
-    }()
-
-    static var isRunningUITest: Bool {
-        return ProcessInfo().arguments.contains("UITesting")
-    }
+final class AppAppearance {
 
     static func setupAppearance() {
         let standard = UINavigationBarAppearance()
         standard.configureWithOpaqueBackground()
+        
         standard.backgroundColor = Color.ThemeColor
         standard.titleTextAttributes = [.foregroundColor: Color.TintColor]
-
         UINavigationBar.appearance().standardAppearance = standard
+        UINavigationBar.appearance().tintColor = Color.TintColor
+
+        // Set color of titles and icons in tabBar
+        UITabBar.appearance().tintColor = Color.ThemeColor
+        // Set color of background tabBar
+        UITabBar.appearance().barTintColor = Color.TintColor
     }
 
     enum Color {
-        static let ThemeColor = UIColor(red: 76/255.0, green: 114/255.0, blue: 190/255.0, alpha: 1.0)
+        static let ThemeColor = UIColor(named: "ThemeColor") ?? UIColor.blue
         static let TintColor = UIColor.white
     }
 }
-

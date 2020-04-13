@@ -1,5 +1,5 @@
 //
-//  PostsProviderProtocol.swift
+//  Post.swift
 //  PostsApp
 //
 //  Created by Pavan Kumar Valluru on 13.04.20.
@@ -8,6 +8,9 @@
 
 import Foundation
 
-protocol PostsProvider: AnyObject {
-    
+public struct Post: Codable, Equatable {
+    let userId: Int64
+    let id: Int64
+    let title: String
+    let body: String
 }

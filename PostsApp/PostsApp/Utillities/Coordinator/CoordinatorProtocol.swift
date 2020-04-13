@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Coordinator: class {
+public protocol Coordinator: class {
     var childCoordinators: [Coordinator] { get set }
     func start(presentationHandler: ((Presentable) -> Void))
 }
