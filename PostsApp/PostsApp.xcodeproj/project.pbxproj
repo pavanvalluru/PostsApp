@@ -21,6 +21,11 @@
 		1AE64C4024439E2500769C69 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3924439E2500769C69 /* Router.swift */; };
 		1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */; };
 		1AE64C442443A1BB00769C69 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C432443A1BB00769C69 /* Logger.swift */; };
+		1AE64C4F2443A72500769C69 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C472443A72500769C69 /* MockURLSession.swift */; };
+		1AE64C582443A87600769C69 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C572443A87600769C69 /* AppConfig.swift */; };
+		1AE64C5A2443C13E00769C69 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C592443C13E00769C69 /* Loggable.swift */; };
+		1AE64C5E2444735A00769C69 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C5C2444735A00769C69 /* HTTPService.swift */; };
+		1AE64C60244473D600769C69 /* HTTPServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C5F244473D600769C69 /* HTTPServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		1AE64C3924439E2500769C69 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1AE64C3A24439E2500769C69 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		1AE64C432443A1BB00769C69 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		1AE64C472443A72500769C69 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		1AE64C572443A87600769C69 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		1AE64C592443C13E00769C69 /* Loggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
+		1AE64C5C2444735A00769C69 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
+		1AE64C5F244473D600769C69 /* HTTPServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,7 @@
 		1AE64BFF244399B700769C69 /* PostsApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64C452443A72500769C69 /* Networking */,
 				1AE64C422443A1BB00769C69 /* Logger */,
 				1AE64C3024439E2500769C69 /* Coordinator */,
 				1AE64C00244399B700769C69 /* AppDelegate.swift */,
@@ -118,6 +129,7 @@
 				1AE64C09244399B900769C69 /* Assets.xcassets */,
 				1AE64C0B244399B900769C69 /* LaunchScreen.storyboard */,
 				1AE64C0E244399B900769C69 /* Info.plist */,
+				1AE64C572443A87600769C69 /* AppConfig.swift */,
 			);
 			path = PostsApp;
 			sourceTree = "<group>";
@@ -127,6 +139,7 @@
 			children = (
 				1AE64C17244399BA00769C69 /* PostsAppTests.swift */,
 				1AE64C19244399BA00769C69 /* Info.plist */,
+				1AE64C5F244473D600769C69 /* HTTPServiceTests.swift */,
 			);
 			path = PostsAppTests;
 			sourceTree = "<group>";
@@ -174,8 +187,26 @@
 			isa = PBXGroup;
 			children = (
 				1AE64C432443A1BB00769C69 /* Logger.swift */,
+				1AE64C592443C13E00769C69 /* Loggable.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		1AE64C452443A72500769C69 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64C5C2444735A00769C69 /* HTTPService.swift */,
+				1AE64C462443A72500769C69 /* Mocks */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1AE64C462443A72500769C69 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64C472443A72500769C69 /* MockURLSession.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,9 +340,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AE64C4024439E2500769C69 /* Router.swift in Sources */,
+				1AE64C582443A87600769C69 /* AppConfig.swift in Sources */,
+				1AE64C5A2443C13E00769C69 /* Loggable.swift in Sources */,
 				1AE64C3B24439E2500769C69 /* CoordinatorFinishFlowProtocol.swift in Sources */,
 				1AE64C3E24439E2500769C69 /* BaseTabBarCoordinator.swift in Sources */,
+				1AE64C4F2443A72500769C69 /* MockURLSession.swift in Sources */,
 				1AE64C01244399B700769C69 /* AppDelegate.swift in Sources */,
+				1AE64C5E2444735A00769C69 /* HTTPService.swift in Sources */,
 				1AE64C3C24439E2500769C69 /* ViewController+Coordinator.swift in Sources */,
 				1AE64C442443A1BB00769C69 /* Logger.swift in Sources */,
 				1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */,
@@ -326,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AE64C18244399BA00769C69 /* PostsAppTests.swift in Sources */,
+				1AE64C60244473D600769C69 /* HTTPServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
