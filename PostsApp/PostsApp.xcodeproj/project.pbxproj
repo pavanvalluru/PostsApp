@@ -48,6 +48,7 @@
 		1AE64C922444E56D00769C69 /* CommentsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C8F2444E56D00769C69 /* CommentsTableCell.swift */; };
 		1AE64C932444E56D00769C69 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C902444E56D00769C69 /* CommentsViewController.swift */; };
 		1AE64C952444E69C00769C69 /* CommentsRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C942444E69C00769C69 /* CommentsRequestable.swift */; };
+		1AE64C972444F59A00769C69 /* PersistanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C962444F59A00769C69 /* PersistanceHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		1AE64C8F2444E56D00769C69 /* CommentsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableCell.swift; sourceTree = "<group>"; };
 		1AE64C902444E56D00769C69 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		1AE64C942444E69C00769C69 /* CommentsRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRequestable.swift; sourceTree = "<group>"; };
+		1AE64C962444F59A00769C69 /* PersistanceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 				1AE64C752444994100769C69 /* FavoritesViewModel.swift */,
 				1AE64C7724449A0000769C69 /* PostsProviderProtocol.swift */,
 				1AE64C872444D59900769C69 /* PostsRequestable.swift */,
+				1AE64C962444F59A00769C69 /* PersistanceHandler.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				1AE64C03244399B700769C69 /* SceneDelegate.swift in Sources */,
 				1AE64C5D2444735A00769C69 /* ClientService.swift in Sources */,
 				1AE64C6E2444988600769C69 /* LoginViewModel.swift in Sources */,
+				1AE64C972444F59A00769C69 /* PersistanceHandler.swift in Sources */,
 				1AE64C762444994100769C69 /* FavoritesViewModel.swift in Sources */,
 				1AE64C3F24439E2500769C69 /* Presentable.swift in Sources */,
 				1AE64C952444E69C00769C69 /* CommentsRequestable.swift in Sources */,

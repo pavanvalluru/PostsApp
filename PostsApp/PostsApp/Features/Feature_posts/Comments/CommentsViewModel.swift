@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FavoriteProvider: AnyObject {
-    var favoriteHandler: FavoriteHandler? { get }
+    var favoriteHandler: Persistance? { get }
 }
 
 protocol CommentsProvider: FavoriteProvider {
@@ -30,9 +30,9 @@ class CommentsViewModel: CommentsProvider {
     var post: Post
     var comments: [Comment] = []
 
-    let favoriteHandler: FavoriteHandler?
+    let favoriteHandler: Persistance?
 
-    init(for post: Post, favoriteHandler: FavoriteHandler?) {
+    init(for post: Post, favoriteHandler: Persistance?) {
         self.post = post
         self.favoriteHandler = favoriteHandler
     }

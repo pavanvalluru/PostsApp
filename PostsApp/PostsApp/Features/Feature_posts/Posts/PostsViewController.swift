@@ -33,24 +33,24 @@ class PostsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if isBeingPresented || isMovingToParent { // load automatically only for first time
-            self.loadingIndicator.startAnimating()
-            postsViewModel.fetchPosts() { [weak self] res in
-                DispatchQueue.main.async {
-                    self?.loadingIndicator.stopAnimating()
-                    switch res {
-                    case .success(_):
-                        self?.tableView.reloadData()
-                    case .failure(let error):
-                        let alertView = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                        alertView.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                        self?.present(alertView, animated: true)
-                    }
+        self.loadingIndicator.startAnimating()
+        postsViewModel.fetchPosts() { [weak self] res in
+            DispatchQueue.main.async {
+                self?.loadingIndicator.stopAnimating()
+                switch res {
+                case .success(_):
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    let alertView = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alertView.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self?.present(alertView, animated: true)
                 }
             }
-        } else {
-            self.tableView.reloadData()
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     // MARK: GUI setup methods

@@ -45,7 +45,7 @@ class PostTableCell: UITableViewCell {
         return lbl
     }()
 
-    private var favoriteHandler: FavoriteHandler?
+    private var favoriteHandler: Persistance?
     private var post: Post?
 
     private var isFavorite: Bool = false {
@@ -114,10 +114,9 @@ class PostTableCell: UITableViewCell {
         if let post = self.post, let favHndler = favoriteHandler {
             favHndler.setFavoriteState(to: isFavorite, for: post)
         }
-
     }
 
-    func setup(for post: Post, favoriteHandler: FavoriteHandler?) {
+    func setup(for post: Post, favoriteHandler: Persistance?) {
         self.post = post
         self.favoriteHandler = favoriteHandler
         isFavorite = favoriteHandler?.isFavorite(post: post) ?? false

@@ -16,5 +16,5 @@ protocol PostsProvider: FavoritesProvider {
 }
 
 protocol FavoritesProvider: AnyObject {
-    var favoriteHandler: FavoriteHandler? { get }
+    var favoriteHandler: Persistance? { get }
 }

@@ -11,13 +11,13 @@ import Foundation
 class PostsViewModel: PostsProvider {
     var title: String = "My Posts"
     var posts: [Post] = []
-    var favoriteHandler: FavoriteHandler?
+    var favoriteHandler: Persistance?
 
     var onItemSelected: ((Post) -> Void)?
 
     private let userId: String
 
-    init(for userId: String, favoriteHandler: FavoriteHandler?) {
+    init(for userId: String, favoriteHandler: Persistance?) {
         self.userId = userId
         self.favoriteHandler = favoriteHandler
     }
