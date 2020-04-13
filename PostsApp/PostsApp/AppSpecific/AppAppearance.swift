@@ -24,7 +24,7 @@ final class AppAppearance {
     }
 
     enum Color {
-        static let ThemeColor = UIColor(red: 76/255.0, green: 114/255.0, blue: 190/255.0, alpha: 1.0)
+        static let ThemeColor = UIColor(named: "ThemeColor")
         static let TintColor = UIColor.white
     }
 }

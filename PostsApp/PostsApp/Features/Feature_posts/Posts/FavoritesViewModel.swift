@@ -29,8 +29,8 @@ class FavoritesViewModel: PostsProvider {
         self.fetchHandler = fetchHandler
     }
 
-    func fetchPosts(onCompletion: @escaping (Result<Bool, Error>) -> Void) {
+    func fetchPosts(onCompletion: @escaping (Result<Void, Error>) -> Void) {
         posts = fetchHandler?.getAllFavoritePosts() ?? []
-        onCompletion(.success(true))
+        onCompletion(.success(()))
     }
 }

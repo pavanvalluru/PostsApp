@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol PostsProvider: FavoriteProvider {
+protocol PostsProvider: FavoritesProvider {
     var posts: [Post] { get }
-    func fetchPosts(onCompletion: @escaping (Result<Bool, Error>) -> Void)
+    func fetchPosts(onCompletion: @escaping (Result<Void, Error>) -> Void)
 }
 
-protocol FavoriteProvider: AnyObject {
+protocol FavoritesProvider: AnyObject {
     var favoriteHandler: FavoriteHandler? { get }
 }
