@@ -21,6 +21,8 @@ class FavoritesViewModel: PostsProvider {
     var title: String = "Favorites"
     var posts: [Post] = []
 
+    var onItemSelected: ((Post) -> Void)?
+
     var favoriteHandler: FavoriteHandler?
 
     var fetchHandler: FavoritesFetchHandler?

@@ -1,5 +1,5 @@
 //
-//  PostsViewController.swift
+//  CommentsViewController.swift
 //  PostsApp
 //
 //  Created by Pavan Kumar Valluru on 13.04.20.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class PostsViewController: UITableViewController {
+class CommentsViewController: UITableViewController {
 
-    private let postsViewModel: PostsProvider
+    private let commentsViewModel: CommentsProvider
 
     private var loadingIndicator: UIActivityIndicatorView!
 
-    init(viewModel: PostsProvider) {
-        self.postsViewModel = viewModel
+    init(viewModel: CommentsProvider) {
+        self.commentsViewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,8 @@ class PostsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = postsViewModel.title
+        self.title = "Comments"
+
         setupTableView()
         setupLoadingIndicator()
     }
@@ -33,9 +34,10 @@ class PostsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if isBeingPresented || isMovingToParent { // load automatically only for first time
+        if isBeingPresented || isMovingToParent {
+            // Navigation controller is being presented modally
             self.loadingIndicator.startAnimating()
-            postsViewModel.fetchPosts() { [weak self] res in
+            commentsViewModel.fetchComments() { [weak self] res in
                 DispatchQueue.main.async {
                     self?.loadingIndicator.stopAnimating()
                     switch res {
@@ -49,7 +51,7 @@ class PostsViewController: UITableViewController {
                 }
             }
         } else {
-            self.tableView.reloadData()
+            tableView.reloadData()
         }
     }
 
@@ -63,8 +65,8 @@ class PostsViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
         tableView.delegate   = self
         tableView.dataSource = self
-        tableView.allowsSelection = true
-        tableView.accessibilityIdentifier = "postsTable"
+        tableView.allowsSelection = false
+        tableView.accessibilityIdentifier = "commentsTable"
         tableView.scrollsToTop = true
     }
 
@@ -80,28 +82,39 @@ class PostsViewController: UITableViewController {
     }
 }
 
-extension PostsViewController {
+extension CommentsViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = postsViewModel.posts.count
-        return count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return commentsViewModel.comments.count
+        default:
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableCell.self)) ??
-            PostTableCell(style: .default, reuseIdentifier: String(describing: PostTableCell.self))
-        if postsViewModel.posts.count > indexPath.row {
-            (cell as? PostTableCell)?.setup(for: postsViewModel.posts[indexPath.row], favoriteHandler: postsViewModel.favoriteHandler)
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableCell.self)) ??
+                PostTableCell(style: .default, reuseIdentifier: String(describing: PostTableCell.self))
+            (cell as? PostTableCell)?.setup(for: commentsViewModel.post, favoriteHandler: commentsViewModel.favoriteHandler)
+             return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentsTableCell.self)) ??
+                CommentsTableCell(style: .default, reuseIdentifier: String(describing: CommentsTableCell.self))
+            if commentsViewModel.comments.count > indexPath.row {
+                (cell as? CommentsTableCell)?.setup(for: commentsViewModel.comments[indexPath.row])
+            }
+             return cell
+        default:
+            return UITableViewCell()
         }
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = postsViewModel.posts[indexPath.row]
-        postsViewModel.onItemSelected?(post)
     }
 }

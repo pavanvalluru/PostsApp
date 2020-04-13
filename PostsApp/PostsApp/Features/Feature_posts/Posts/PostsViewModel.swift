@@ -13,6 +13,8 @@ class PostsViewModel: PostsProvider {
     var posts: [Post] = []
     var favoriteHandler: FavoriteHandler?
 
+    var onItemSelected: ((Post) -> Void)?
+
     private let userId: String
 
     init(for userId: String, favoriteHandler: FavoriteHandler?) {

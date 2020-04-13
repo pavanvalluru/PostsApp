@@ -13,9 +13,11 @@ final class AppAppearance {
     static func setupAppearance() {
         let standard = UINavigationBarAppearance()
         standard.configureWithOpaqueBackground()
+        
         standard.backgroundColor = Color.ThemeColor
         standard.titleTextAttributes = [.foregroundColor: Color.TintColor]
         UINavigationBar.appearance().standardAppearance = standard
+        UINavigationBar.appearance().tintColor = Color.TintColor
 
         // Set color of titles and icons in tabBar
         UITabBar.appearance().tintColor = Color.ThemeColor

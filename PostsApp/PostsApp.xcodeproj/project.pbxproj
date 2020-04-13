@@ -42,8 +42,12 @@
 		1AE64C822444C96300769C69 /* PostsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C812444C96300769C69 /* PostsFeature.swift */; };
 		1AE64C842444CDB600769C69 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C832444CDB600769C69 /* Post.swift */; };
 		1AE64C862444D08100769C69 /* LoginFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C852444D08100769C69 /* LoginFeature.swift */; };
-		1AE64C882444D59900769C69 /* postsRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C872444D59900769C69 /* postsRequestable.swift */; };
+		1AE64C882444D59900769C69 /* PostsRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C872444D59900769C69 /* PostsRequestable.swift */; };
 		1AE64C8D2444DD0F00769C69 /* PostsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C8C2444DD0F00769C69 /* PostsTableCell.swift */; };
+		1AE64C912444E56D00769C69 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C8E2444E56D00769C69 /* CommentsViewModel.swift */; };
+		1AE64C922444E56D00769C69 /* CommentsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C8F2444E56D00769C69 /* CommentsTableCell.swift */; };
+		1AE64C932444E56D00769C69 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C902444E56D00769C69 /* CommentsViewController.swift */; };
+		1AE64C952444E69C00769C69 /* CommentsRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64C942444E69C00769C69 /* CommentsRequestable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +109,12 @@
 		1AE64C812444C96300769C69 /* PostsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFeature.swift; sourceTree = "<group>"; };
 		1AE64C832444CDB600769C69 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1AE64C852444D08100769C69 /* LoginFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFeature.swift; sourceTree = "<group>"; };
-		1AE64C872444D59900769C69 /* postsRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postsRequestable.swift; sourceTree = "<group>"; };
+		1AE64C872444D59900769C69 /* PostsRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRequestable.swift; sourceTree = "<group>"; };
 		1AE64C8C2444DD0F00769C69 /* PostsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableCell.swift; sourceTree = "<group>"; };
+		1AE64C8E2444E56D00769C69 /* CommentsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
+		1AE64C8F2444E56D00769C69 /* CommentsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableCell.swift; sourceTree = "<group>"; };
+		1AE64C902444E56D00769C69 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		1AE64C942444E69C00769C69 /* CommentsRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRequestable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +308,10 @@
 		1AE64C8A2444D95900769C69 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64C8F2444E56D00769C69 /* CommentsTableCell.swift */,
+				1AE64C902444E56D00769C69 /* CommentsViewController.swift */,
+				1AE64C8E2444E56D00769C69 /* CommentsViewModel.swift */,
+				1AE64C942444E69C00769C69 /* CommentsRequestable.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -314,7 +326,7 @@
 				1AE64C8C2444DD0F00769C69 /* PostsTableCell.swift */,
 				1AE64C752444994100769C69 /* FavoritesViewModel.swift */,
 				1AE64C7724449A0000769C69 /* PostsProviderProtocol.swift */,
-				1AE64C872444D59900769C69 /* postsRequestable.swift */,
+				1AE64C872444D59900769C69 /* PostsRequestable.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -453,12 +465,13 @@
 				1AE64C4024439E2500769C69 /* Router.swift in Sources */,
 				1AE64C582443A87600769C69 /* AppConfig.swift in Sources */,
 				1AE64C802444C23800769C69 /* AppAppearance.swift in Sources */,
+				1AE64C912444E56D00769C69 /* CommentsViewModel.swift in Sources */,
 				1AE64C7C2444A9DF00769C69 /* UITextField+Extensions.swift in Sources */,
 				1AE64C5A2443C13E00769C69 /* Loggable.swift in Sources */,
 				1AE64C862444D08100769C69 /* LoginFeature.swift in Sources */,
 				1AE64C3B24439E2500769C69 /* CoordinatorFinishFlowProtocol.swift in Sources */,
 				1AE64C642444907700769C69 /* PostsCoordinator.swift in Sources */,
-				1AE64C882444D59900769C69 /* postsRequestable.swift in Sources */,
+				1AE64C882444D59900769C69 /* PostsRequestable.swift in Sources */,
 				1AE64C682444948900769C69 /* AppCoordinator.swift in Sources */,
 				1AE64C3E24439E2500769C69 /* BaseTabBarCoordinator.swift in Sources */,
 				1AE64C70244498B200769C69 /* LoginViewController.swift in Sources */,
@@ -468,6 +481,7 @@
 				1AE64C7824449A0000769C69 /* PostsProviderProtocol.swift in Sources */,
 				1AE64C822444C96300769C69 /* PostsFeature.swift in Sources */,
 				1AE64C3C24439E2500769C69 /* ViewController+Coordinator.swift in Sources */,
+				1AE64C932444E56D00769C69 /* CommentsViewController.swift in Sources */,
 				1AE64C442443A1BB00769C69 /* Logger.swift in Sources */,
 				1AE64C4124439E2500769C69 /* CoordinatorProtocol.swift in Sources */,
 				1AE64C842444CDB600769C69 /* Post.swift in Sources */,
@@ -479,7 +493,9 @@
 				1AE64C6E2444988600769C69 /* LoginViewModel.swift in Sources */,
 				1AE64C762444994100769C69 /* FavoritesViewModel.swift in Sources */,
 				1AE64C3F24439E2500769C69 /* Presentable.swift in Sources */,
+				1AE64C952444E69C00769C69 /* CommentsRequestable.swift in Sources */,
 				1AE64C72244498FC00769C69 /* PostsViewModel.swift in Sources */,
+				1AE64C922444E56D00769C69 /* CommentsTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

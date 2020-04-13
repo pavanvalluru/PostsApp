@@ -10,7 +10,13 @@ import UIKit
 
 class PostsCoordinator: BaseTabBarCoordinator {
 
+    var onCoordinatorFinished: ((String) -> Void)?
+
     let userId: String
+
+    var favoriteHandler: FavoriteHandler?
+
+    var favoriteFetchHandler: FavoritesFetchHandler?
 
     init(for userId: String) {
         self.userId = userId
@@ -23,14 +29,20 @@ class PostsCoordinator: BaseTabBarCoordinator {
 
     private func setupTabBarItems() {
         // first tab
-        let allPostsVM = PostsViewModel(for: self.userId, favoriteHandler: nil)
+        let allPostsVM = PostsViewModel(for: self.userId, favoriteHandler: favoriteHandler)
+        allPostsVM.onItemSelected = { post in
+            self.onPostTapped(post: post)
+        }
         let firstTabVC = PostsViewController(viewModel: allPostsVM)
         let firstTabNavC = UINavigationController(rootViewController: firstTabVC)
         firstTabNavC.tabBarItem.title = "My Posts"
         self.appendToTabBar(presentable: firstTabNavC)
 
         // second tab
-        let favoritesVM = FavoritesViewModel(favoriteHandler: nil, fetchHandler: nil)
+        let favoritesVM = FavoritesViewModel(favoriteHandler: nil, fetchHandler: favoriteFetchHandler)
+        favoritesVM.onItemSelected = { post in
+            self.onPostTapped(post: post)
+        }
         let secondTabVC = PostsViewController(viewModel: favoritesVM)
         let secondTabNavC = UINavigationController(rootViewController: secondTabVC)
         secondTabNavC.tabBarItem.title = "Favorites"
@@ -38,6 +50,14 @@ class PostsCoordinator: BaseTabBarCoordinator {
 
         tabBarController.viewControllers = tabBarViewControllers
         tabBarController.tabBar.accessibilityIdentifier = "MainTabBar"
+    }
+
+    private func onPostTapped(post: Post) {
+        let commentsVM = CommentsViewModel(for: post, favoriteHandler: favoriteHandler)
+        let commentsVC = CommentsViewController(viewModel: commentsVM)
+        if let navVC = self.tabBarController.selectedViewController as? UINavigationController {
+            navVC.pushViewController(commentsVC, animated: true)
+        }
     }
 }
 
