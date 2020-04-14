@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// AppCoordinator uses the entry points of every sub-module and provides them with necessary dependancies
 class AppCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
 

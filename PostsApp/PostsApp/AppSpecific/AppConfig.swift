@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// This class provides all the necessary configuration for App and its sub-modules
 final class AppConfig {
 
     static var isRunningUITest: Bool {

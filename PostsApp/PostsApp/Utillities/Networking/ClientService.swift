@@ -27,6 +27,7 @@ public class ClientService: NSObject, ResponseRequestable {
 
     public func getDecodedResponse<T: Decodable>(from endPoint: Requestable, objectType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         guard let request = httpClient.urlRequest(for: endPoint) else {
+            logger?.error("invalid endpoint request")
             return
         }
         httpClient.get(request: request) { data, error in

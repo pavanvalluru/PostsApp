@@ -56,6 +56,7 @@
 		1AE64CA42445EED200769C69 /* testPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64CA32445EED200769C69 /* testPosts.json */; };
 		1AE64CA82445EFA200769C69 /* testComments.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64CA72445EFA200769C69 /* testComments.json */; };
 		1AE64CAC24461E0C00769C69 /* PostsPersistanceHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64CAB24461E0C00769C69 /* PostsPersistanceHandlerTests.swift */; };
+		1AE64CAE244650A400769C69 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64CAD244650A400769C69 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		1AE64CA32445EED200769C69 /* testPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testPosts.json; sourceTree = "<group>"; };
 		1AE64CA72445EFA200769C69 /* testComments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testComments.json; sourceTree = "<group>"; };
 		1AE64CAB24461E0C00769C69 /* PostsPersistanceHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsPersistanceHandlerTests.swift; sourceTree = "<group>"; };
+		1AE64CAD244650A400769C69 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		1AE64BFF244399B700769C69 /* PostsApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64CAD244650A400769C69 /* README.md */,
 				1AE64C69244497D000769C69 /* AppSpecific */,
 				1AE64C6A244497F800769C69 /* Features */,
 				1AE64C892444D7D800769C69 /* Utillities */,
@@ -467,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE64CAE244650A400769C69 /* README.md in Resources */,
 				1AE64C0D244399B900769C69 /* LaunchScreen.storyboard in Resources */,
 				1AE64C0A244399B900769C69 /* Assets.xcassets in Resources */,
 			);
