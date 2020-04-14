@@ -1,5 +1,10 @@
 # PostsApp
 
+# Architecture
+
+![Image of Architecture](https://github.com/pavanvalluru/PostsApp/blob/master/Screenshot%202020-04-14%20at%2023.30.23.png)
+
+
 # Overview
 
 It is obvious that in a cross-functional team setup, it is important to have a modular architecture that enables code re-use and allows concurrent feature development with out enforcing all developers to depend/wait for a specific implementation. 
@@ -24,7 +29,5 @@ But, the dependency manager may not be sufficient, as we don’t want to include
 Xcode Version 11+ Swift 5.0+
 No 3rd party frameworks has been used in this project. 
 
-
-# Architecture
-
-![Image of Architecture](https://github.com/pavanvalluru/PostsApp/blob/master/Screenshot%202020-04-14%20at%2023.30.23.png)
+# Installation
+Open the project file using xcode and run it on a simulator.
