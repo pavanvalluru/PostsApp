@@ -43,7 +43,6 @@ class ClientServiceTests: XCTestCase {
         })
         waitForExpectations(timeout: 2.0, handler: nil)
     }
-
 }
 
 struct TestModel: Codable {

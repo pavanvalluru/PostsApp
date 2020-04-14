@@ -93,7 +93,7 @@ public class MockURLSession: URLSession {
                         error: nil)
             }
         }
-        if let url = request.url, let json = ProcessInfo.processInfo.environment[url.absoluteString] {
+        if let url = request.url, let json = ProcessInfo.processInfo.environment[url.absoluteString.replacingOccurrences(of: "=", with: "+")] {
             let response = successHttpURLResponse(request: request)
             let data = json.data(using: String.Encoding.utf8)
             return (data, response, nil)
