@@ -2,6 +2,11 @@
 
 # Architecture
 
+This project uses MVVM-C pattern.
+
+
+# Modular System Architecture
+
 ![Image of Architecture](https://github.com/pavanvalluru/PostsApp/blob/master/Screenshot%202020-04-14%20at%2023.30.23.png)
 
 
@@ -30,4 +35,11 @@ Xcode Version 11+ Swift 5.0+
 No 3rd party frameworks has been used in this project. 
 
 # Installation
+
 Open the project file using xcode and run it on a simulator.
+
+# Additional Info
+
+The project has no storyboard files and is implemented with programmatic layout. 
+The project has some Unit and UI Tests.
+Dark Mode is disabled.
