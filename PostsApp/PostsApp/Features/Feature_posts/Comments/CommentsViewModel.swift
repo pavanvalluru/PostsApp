@@ -18,7 +18,7 @@ protocol CommentsProvider: FavoriteProvider {
     func fetchComments(onCompletion: @escaping (Result<Void, Error>) -> Void)
 }
 
-struct Comment: Decodable {
+struct Comment: Codable {
     let postId: Int
     let id: Int
     let name: String
@@ -30,7 +30,7 @@ class CommentsViewModel: CommentsProvider {
     var post: Post
     var comments: [Comment] = []
 
-    let favoriteHandler: PostPersistance?
+    var favoriteHandler: PostPersistance?
 
     init(for post: Post, favoriteHandler: PostPersistance?) {
         self.post = post

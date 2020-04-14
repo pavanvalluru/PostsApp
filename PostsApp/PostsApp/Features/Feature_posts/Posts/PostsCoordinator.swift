@@ -21,9 +21,9 @@ class PostsCoordinator: BaseTabBarCoordinator {
 
     let userId: String
 
-    var favoritesHandler: PostPersistance
+    var favoritesHandler: PostPersistance?
 
-    init(for userId: String, persistance: PostPersistance) {
+    init(for userId: String, persistance: PostPersistance?) {
         self.userId = userId
         self.favoritesHandler = persistance
     }

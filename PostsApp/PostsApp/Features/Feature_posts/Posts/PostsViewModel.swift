@@ -24,7 +24,7 @@ class PostsViewModel: PostsProvider {
 
     func fetchPosts(onCompletion: @escaping (Result<Void, Error>) -> Void) {
         let postsEndPoint = PostsRequestable(headerParams: [:], queryParams: ["userId": "\(userId)"])
-        PostsFeature.shared.clientService.getDecodedResponse(from: postsEndPoint, objectType: [Post].self, completion: { res in
+        PostsHandler(endPoint: postsEndPoint).getPosts() { res in
             switch res {
             case .success(let posts):
                 self.posts = posts
@@ -33,7 +33,7 @@ class PostsViewModel: PostsProvider {
                 self.posts.removeAll()
                 onCompletion(.failure(error))
             }
-        })
+        }
     }
 }
 

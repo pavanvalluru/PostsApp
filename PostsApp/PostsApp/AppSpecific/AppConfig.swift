@@ -17,6 +17,10 @@ final class AppConfig {
     static var networkConfig: NetworkConfigurable {
         DefaultNetworkConfig()
     }
+
+    static var persistanceManager: PostPersistance {
+        PostsPersistanceHandler()
+    }
 }
 
 class DefaultNetworkConfig: NetworkConfigurable {

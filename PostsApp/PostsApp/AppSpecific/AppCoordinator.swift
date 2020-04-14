@@ -36,7 +36,7 @@ class AppCoordinator: Coordinator {
     func startPostsFeature(for user: String) {
         let postsCoord = PostsFeature.setup(userId: user,
                                             networkConfig: AppConfig.networkConfig,
-                                            persistance: PostsPersistanceHandler.shared)
+                                            persistance: AppConfig.persistanceManager)
         postsCoord.start( presentationHandler: { vc in
             self.addChildCoordinator(postsCoord)
             if let vc = vc.toPresent() {

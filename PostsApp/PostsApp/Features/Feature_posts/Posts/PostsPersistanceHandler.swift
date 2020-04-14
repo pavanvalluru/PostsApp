@@ -10,12 +10,12 @@ import Foundation
 
 public class PostsPersistanceHandler: PostPersistance {
 
-    static let shared = PostsPersistanceHandler()
+    // can be provided with setup method
+    private let persistanceProvider: PersistanceProvider
 
-    private init() { }
-
-    // can bbe provided with setup method
-    private var persistanceProvider: PersistanceProvider = UserDefaultsPersistance()
+    init(provider: PersistanceProvider = UserDefaultsPersistance()) {
+        self.persistanceProvider = provider
+    }
 
     public func setFavoriteState(to state: Bool, for post: Post) {
         var favorites = getAllFavorites()
