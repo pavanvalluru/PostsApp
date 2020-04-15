@@ -12,10 +12,10 @@ class PostTableCell: UITableViewCell {
 
     private let favButton: UIButton = {
         let btn = UIButton()
-        btn.layer.borderColor = AppAppearance.Color.ThemeColor.cgColor
+        btn.layer.borderColor = PostsFeature.shared.appearance?.mainColor.cgColor
         btn.layer.borderWidth = 1
-        btn.backgroundColor = AppAppearance.Color.ThemeColor
-        btn.setTitleColor(AppAppearance.Color.TintColor, for: .normal)
+        btn.backgroundColor = PostsFeature.shared.appearance?.mainColor
+        btn.setTitleColor(PostsFeature.shared.appearance?.tintColor, for: .normal)
         btn.setTitle("FAV", for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -23,7 +23,7 @@ class PostTableCell: UITableViewCell {
 
     private var containerView: UIView = {
         let view = UIView()
-        view.layer.borderColor = AppAppearance.Color.ThemeColor.cgColor
+        view.layer.borderColor = PostsFeature.shared.appearance?.mainColor.cgColor
         view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -52,11 +52,11 @@ class PostTableCell: UITableViewCell {
     private var isFavorite: Bool = false {
         didSet {
             if isFavorite {
-                favButton.backgroundColor = AppAppearance.Color.ThemeColor
-                favButton.setTitleColor(AppAppearance.Color.TintColor, for: .normal)
+                favButton.backgroundColor = PostsFeature.shared.appearance?.mainColor
+                favButton.setTitleColor(PostsFeature.shared.appearance?.tintColor, for: .normal)
             } else {
-                favButton.backgroundColor = AppAppearance.Color.TintColor
-                favButton.setTitleColor(AppAppearance.Color.ThemeColor, for: .normal)
+                favButton.backgroundColor = PostsFeature.shared.appearance?.tintColor
+                favButton.setTitleColor(PostsFeature.shared.appearance?.mainColor, for: .normal)
             }
         }
     }

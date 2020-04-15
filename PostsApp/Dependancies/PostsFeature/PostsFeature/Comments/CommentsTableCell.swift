@@ -12,7 +12,7 @@ class CommentsTableCell: UITableViewCell {
 
     private var containerView: UIView = {
         let view = UIView()
-        view.layer.borderColor = AppAppearance.Color.ThemeColor.cgColor
+        view.layer.borderColor = PostsFeature.shared.appearance?.mainColor.cgColor
         view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

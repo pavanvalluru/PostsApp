@@ -74,7 +74,7 @@ class PostsViewController: UITableViewController {
 
     private func setupLoadingIndicator() {
         loadingIndicator = UIActivityIndicatorView(style: .large)
-        loadingIndicator.color = AppAppearance.Color.ThemeColor
+        loadingIndicator.color = PostsFeature.shared.appearance?.mainColor
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         tableView.addSubview(loadingIndicator)

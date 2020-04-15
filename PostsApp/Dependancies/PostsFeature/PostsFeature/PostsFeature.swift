@@ -15,6 +15,7 @@ public class PostsFeature {
 
     private struct Config {
         var networkConfig: NetworkConfigurable
+        let appearance: PostsAppearanceConfig
         let userId: String
     }
     private static var config: Config?
@@ -27,14 +28,23 @@ public class PostsFeature {
         PostsFeature.config?.networkConfig.logger
     }
 
+    internal var appearance: PostsAppearanceConfig? {
+        PostsFeature.config?.appearance
+    }
+
     private init() {
         guard PostsFeature.config != nil else {
             fatalError("Error - you must call setup before accessing Postsfeature.shared")
         }
     }
 
-    public class func setup(userId: String, networkConfig: NetworkConfigurable, persistance: PostPersistance?) -> Coordinator {
-        let config = Config(networkConfig: networkConfig, userId: userId)
+    public class func setup(userId: String,
+                            networkConfig: NetworkConfigurable,
+                            appearance: PostsAppearanceConfig,
+                            persistance: PostPersistance?) -> Coordinator {
+        let config = Config(networkConfig: networkConfig,
+                            appearance: appearance,
+                            userId: userId)
         PostsFeature.config = config
 
         return PostsCoordinator(for: userId, persistance: persistance)
