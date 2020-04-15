@@ -50,6 +50,8 @@ public class Logger: Loggable {
         #endif
     }
 
+    public init() { }
+
     // MARK: - Loging methods
 
     /// Logs error messages on console with prefix [‼️]
