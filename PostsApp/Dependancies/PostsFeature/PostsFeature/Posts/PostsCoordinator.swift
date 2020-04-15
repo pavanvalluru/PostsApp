@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Utilities
 
 public protocol PostPersistance {
     func setFavoriteState(to state: Bool, for post: Post)
@@ -26,6 +27,7 @@ class PostsCoordinator: BaseTabBarCoordinator {
     init(for userId: String, persistance: PostPersistance?) {
         self.userId = userId
         self.favoritesHandler = persistance
+        super.init()
     }
 
     override func start(presentationHandler: ((Presentable) -> Void)) {

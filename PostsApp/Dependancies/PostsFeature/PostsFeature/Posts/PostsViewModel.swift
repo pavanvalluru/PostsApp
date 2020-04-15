@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Utilities
 
 class PostsViewModel: PostsProvider {
     var title: String = "My Posts"

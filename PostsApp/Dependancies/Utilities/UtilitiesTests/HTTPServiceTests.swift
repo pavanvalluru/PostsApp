@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PostsApp
+@testable import Utilities
 
 class HTTPServiceTests: XCTestCase {
 
@@ -50,7 +50,7 @@ class HTTPServiceTests: XCTestCase {
 class TestConfig: NetworkConfigurable {
     var baseURL: URL = URL(string: "https://base-test-url/")!
     var headers: [String: String] = ["configHeader1": "configValue1"]
-    var urlSession: URLSession = MockURLSession()
+    var urlSession: URLSession = MockURLSession(isUITest: false)
     var logger: Logger?
 }
 

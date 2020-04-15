@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Utilities
 
 /// This class provides all the necessary configuration for App and its sub-modules
 final class AppConfig {
@@ -31,7 +32,7 @@ class DefaultNetworkConfig: NetworkConfigurable {
         return [:]
     }
     var urlSession: URLSession {
-        AppConfig.isRunningUITest ? MockURLSession() : URLSession.shared
+        AppConfig.isRunningUITest ? MockURLSession(isUITest: true) : URLSession.shared
     }
     var logger: Logger? {
         Logger()

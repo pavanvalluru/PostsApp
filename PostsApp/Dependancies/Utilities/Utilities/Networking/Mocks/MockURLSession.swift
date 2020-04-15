@@ -7,21 +7,27 @@
 //
 
 import Foundation
-import UIKit
 
 typealias DataResponse = (data: Data?, urlResponse: URLResponse?, error: Error?)
 
 // This is needed for UITesting
-public class MockURLSession: URLSession {
+open class MockURLSession: URLSession {
 
-    var nextDataTask = MockURLSessionDataTask()
-    var nextDownloadTask = MockURLSessionDownloadTask()
-    var nextData: Data?
-    var nextDownloadedFileURL: URL?
-    var nextError: Error?
-    var nextResponse: ((URLRequest) -> URLResponse)?
+    open var nextDataTask = MockURLSessionDataTask()
+    open var nextDownloadTask = MockURLSessionDownloadTask()
+    open var nextData: Data?
+    open var nextDownloadedFileURL: URL?
+    open var nextError: Error?
+    open var nextResponse: ((URLRequest) -> URLResponse)?
+
+    open var isUITest: Bool = false
 
     private (set) var lastURL: URL?
+
+    public convenience init(isUITest: Bool) {
+        self.init()
+        self.isUITest = isUITest
+    }
 
     // MARK: - Predefined Responses
 
@@ -50,7 +56,7 @@ public class MockURLSession: URLSession {
 
         var response: DataResponse
 
-        if AppConfig.isRunningUITest {
+        if isUITest {
             response = getStubbedResponseIfAvailable(for: request) ?? (nil, nil, nil)
         } else {
             let urlResponse: URLResponse = nextResponse?(request) ?? successHttpURLResponse(request: request)
@@ -61,13 +67,13 @@ public class MockURLSession: URLSession {
     }
 
     public override func downloadTask(with request: URLRequest,
-                               completionHandler: @escaping (URL?, URLResponse?, Error?) -> Void)
+                                      completionHandler: @escaping (URL?, URLResponse?, Error?) -> Void)
         -> URLSessionDownloadTask {
             lastURL = request.url
 
             var response: DataResponse
 
-            if AppConfig.isRunningUITest {
+            if isUITest {
                 response = getStubbedResponseIfAvailable(for: request) ?? (nil, nil, nil)
             } else {
                 let urlResponse = nextResponse?(request) ?? successHttpURLResponse(request: request)
@@ -102,18 +108,18 @@ public class MockURLSession: URLSession {
     }
 }
 
-class MockURLSessionDataTask: URLSessionDataTask {
+open class MockURLSessionDataTask: URLSessionDataTask {
     private (set) var resumeWasCalled = false
 
-    override func resume() {
+    open override func resume() {
         resumeWasCalled = true
     }
 }
 
-class MockURLSessionDownloadTask: URLSessionDownloadTask {
+open class MockURLSessionDownloadTask: URLSessionDownloadTask {
     private (set) var resumeWasCalled = false
 
-    override func resume() {
+    open override func resume() {
         resumeWasCalled = true
     }
 }

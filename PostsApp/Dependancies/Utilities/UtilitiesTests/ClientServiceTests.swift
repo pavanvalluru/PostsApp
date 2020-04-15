@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PostsApp
+@testable import Utilities
 
 class ClientServiceTests: XCTestCase {
 

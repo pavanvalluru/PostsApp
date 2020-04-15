@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import Utilities
 
 public class PostsPersistanceHandler: PostPersistance {
 
     // can be provided with setup method
     private let persistanceProvider: PersistanceProvider
 
-    init(provider: PersistanceProvider = UserDefaultsPersistance()) {
+    init(provider: PersistanceProvider) {
         self.persistanceProvider = provider
     }
 
@@ -56,3 +57,4 @@ public class PostsPersistanceHandler: PostPersistance {
         }
     }
 }
+

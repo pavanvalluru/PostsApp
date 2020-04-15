@@ -8,18 +8,20 @@
 
 import UIKit
 
-class BaseTabBarCoordinator: Coordinator {
+open class BaseTabBarCoordinator: Coordinator {
 
     // MARK: - Vars & Lets
-    var childCoordinators = [Coordinator]()
-    var tabBarController = UITabBarController()
-    var tabBarViewControllers = [UIViewController]()
+    public var childCoordinators = [Coordinator]()
+    public var tabBarController = UITabBarController()
+    public var tabBarViewControllers = [UIViewController]()
 
-    func start(presentationHandler: ((Presentable) -> Void)) {
+    public init() { }
+
+    open func start(presentationHandler: ((Presentable) -> Void)) {
         fatalError("Children should override this method")
     }
 
-    func appendToTabBar(presentable: Presentable) {
+    public func appendToTabBar(presentable: Presentable) {
         if let vc = presentable as? UIViewController {
             tabBarViewControllers.append(vc)
         } else {

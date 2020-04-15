@@ -7,14 +7,15 @@
 //
 
 import XCTest
-@testable import PostsApp
+@testable import PostsFeature
 
 class CommentsViewModelTests: XCTestCase {
 
     var sut: CommentsViewModel!
 
     override func setUpWithError() throws {
-         _ = PostsFeature.setup(userId: "testUser", networkConfig: TestNetworkConfig(), persistance: nil)
+        let appearance = PostsAppearanceConfig(mainColor: .white, tintColor: .white)
+         _ = PostsFeature.setup(userId: "testUser", networkConfig: TestNetworkConfig(), appearance: appearance, persistance: nil)
     }
 
     override func tearDownWithError() throws {

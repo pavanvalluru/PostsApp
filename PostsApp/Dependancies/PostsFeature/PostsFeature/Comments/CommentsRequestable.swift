@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Utilities
 
 struct CommentsRequestable: Requestable {
     var path: String = "comments"

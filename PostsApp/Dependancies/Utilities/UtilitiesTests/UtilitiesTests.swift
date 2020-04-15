@@ -1,15 +1,15 @@
 //
-//  PostsFeatureTests.swift
-//  PostsFeatureTests
+//  UtilitiesTests.swift
+//  UtilitiesTests
 //
 //  Created by Pavan Kumar Valluru on 15.04.20.
 //  Copyright © 2020 Pavan Kumar Valluru. All rights reserved.
 //
 
 import XCTest
-@testable import PostsFeature
+@testable import Utilities
 
-class PostsFeatureTests: XCTestCase {
+class UtilitiesTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

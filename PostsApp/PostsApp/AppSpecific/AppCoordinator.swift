@@ -8,6 +8,7 @@
 
 import UIKit
 import PostsFeature
+import Utilities
 
 /// AppCoordinator uses the entry points of every sub-module and provides them with necessary dependancies
 class AppCoordinator: Coordinator {
@@ -37,7 +38,7 @@ class AppCoordinator: Coordinator {
 
     func startPostsFeature(for user: String) {
         let postsCoord = PostsFeature.setup(userId: user,
-                                            networkConfig: PostsFeatureWrapper.networkConfig as! PostsFeature.NetworkConfigurable,
+                                            networkConfig: PostsFeatureWrapper.networkConfig,
                                             appearance: PostsFeatureWrapper.postsAppearance,
                                             persistance: PostsFeatureWrapper.persistanceManager)
         postsCoord.start( presentationHandler: { vc in

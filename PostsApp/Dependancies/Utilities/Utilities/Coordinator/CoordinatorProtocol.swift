@@ -13,7 +13,7 @@ public protocol Coordinator: class {
     func start(presentationHandler: ((Presentable) -> Void))
 }
 
-extension Coordinator {
+public extension Coordinator {
 
     func free(coordinator: Coordinator) {
         childCoordinators = childCoordinators.filter { $0 !== coordinator }

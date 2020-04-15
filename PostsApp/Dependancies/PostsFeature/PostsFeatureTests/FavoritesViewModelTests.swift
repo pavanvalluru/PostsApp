@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PostsApp
+@testable import PostsFeature
 
 class FavoritesViewModelTests: XCTestCase {
 

@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import PostsApp
+@testable import PostsFeature
+@testable import Utilities
 
 class PostsPersistanceHandlerTests: XCTestCase {
 

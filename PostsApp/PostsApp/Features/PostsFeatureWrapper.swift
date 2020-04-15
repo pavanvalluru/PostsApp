@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Utilities
 import PostsFeature
 
 class PostsFeatureWrapper {
@@ -15,7 +16,7 @@ class PostsFeatureWrapper {
     }
 
     static var networkConfig: NetworkConfigurable {
-        AppConfig.networkConfig as! NetworkConfigurable
+        AppConfig.networkConfig
     }
 
     static var persistanceManager: PostPersistance {
@@ -68,5 +69,18 @@ class MyPersistanceHandler: PostPersistance {
         } catch {
             print("Can't encode data: \(error)")
         }
+    }
+}
+
+class UserDefaultsPersistance: PersistanceProvider {
+
+    private let key = "Favorites"
+
+    func getFavoritesData() -> Data? {
+        return UserDefaults.standard.data(forKey: key)
+    }
+
+    func saveObjectToFavorites(data: Data?) {
+        UserDefaults.standard.set(data, forKey: key)
     }
 }

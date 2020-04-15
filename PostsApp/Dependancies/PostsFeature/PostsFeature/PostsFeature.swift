@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Utilities
 
 /// depends on Networking Module and coordinator module
 /// This is the entry point for Posts feature

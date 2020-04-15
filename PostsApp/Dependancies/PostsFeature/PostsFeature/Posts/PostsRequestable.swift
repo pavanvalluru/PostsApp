@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Utilities
 
 struct PostsRequestable: Requestable {
     var path: String = "posts"

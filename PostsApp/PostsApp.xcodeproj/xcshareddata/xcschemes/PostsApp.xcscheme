@@ -37,6 +37,20 @@
             BlueprintName = "PostsApp"
             ReferencedContainer = "container:PostsApp.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1AEF19CD24471CF50026C3AE"
+            BuildableName = "PostsFeature.framework"
+            BlueprintName = "PostsFeature"
+            ReferencedContainer = "container:Dependancies/PostsFeature/PostsFeature.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1AEF1A91244732CA0026C3AE"
+            BuildableName = "Utilities.framework"
+            BlueprintName = "Utilities"
+            ReferencedContainer = "container:Dependancies/Utilities/Utilities.xcodeproj">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
@@ -57,6 +71,26 @@
                BuildableName = "PostsAppUITests.xctest"
                BlueprintName = "PostsAppUITests"
                ReferencedContainer = "container:PostsApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1AEF19D624471CF50026C3AE"
+               BuildableName = "PostsFeatureTests.xctest"
+               BlueprintName = "PostsFeatureTests"
+               ReferencedContainer = "container:Dependancies/PostsFeature/PostsFeature.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1AEF1A9A244732CA0026C3AE"
+               BuildableName = "UtilitiesTests.xctest"
+               BlueprintName = "UtilitiesTests"
+               ReferencedContainer = "container:Dependancies/Utilities/Utilities.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

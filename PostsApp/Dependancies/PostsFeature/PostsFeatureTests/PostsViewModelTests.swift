@@ -7,14 +7,16 @@
 //
 
 import XCTest
-@testable import PostsApp
+@testable import PostsFeature
+@testable import Utilities
 
 class PostsViewModelTests: XCTestCase {
 
     var sut: PostsViewModel!
 
     override func setUpWithError() throws {
-         _ = PostsFeature.setup(userId: "testUser", networkConfig: TestNetworkConfig(), persistance: nil)
+        let appearance = PostsAppearanceConfig(mainColor: .white, tintColor: .white)
+        _ = PostsFeature.setup(userId: "testUser", networkConfig: TestNetworkConfig(), appearance: appearance, persistance: nil)
     }
 
     override func tearDownWithError() throws {
@@ -42,7 +44,7 @@ class PostsViewModelTests: XCTestCase {
 
 class TestNetworkConfig: NetworkConfigurable {
 
-    static var mockSession = MockURLSession()
+    static var mockSession = MockURLSession(isUITest: false)
 
     var baseURL: URL {
         guard let baseUrl = URL(string: "https://test.jsonplaceholder.typicode.com/") else {
