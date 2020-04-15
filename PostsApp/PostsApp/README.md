@@ -1,27 +1,21 @@
-# Overview
+# PostsApp Implementation Description
 
-It is obvious that in a cross-functional team setup, it is important to have a modular architecture that enables code re-use and allows concurrent feature development with out enforcing all developers to depend/wait for a specific implementation. 
+The master branch and develop branch have different states with master branch having a single project with necessary sources and the develop branch having sources splitted in to 3 different projects(sub) that will automatically build and also run tests.
 
-This sample App is segmented in to different independent modules. Coordinator, Network and Logger modules are utility modules that can be used individually by any other module. For example, “LoginModule” may depend on Coordinator, Network and Logger modules directly or they can be injected (after initialising) in to Login Module by its super module (an App).
+## Master Branch
 
-In this way, every feature module can have its own architecture and its own development team. Also, every module may have its own example App that can be used by developers for development. One of the challenges that we face in such a setup is, how can we integrate all these modules/dependancies in to the final App, the so called Dependancy Management.
+For the sake of demonstration, I have divided this project in to 3 different xcode projects each for Main App, PostsFeature and Utilities.
 
-There are several options, each having its own pros and cons. 
-1. Manual linking
-2. Cocoapods
-3. Swift Package Manager
-4. Git Subtree
-5. Git Submodule
-6. Other 3rd party extensions
-
-But, the dependency manager may not be sufficient, as we don’t want to include the complete sub-project sources or as a framework in to our main repository but only the essential source files compiled in to the main App binary. For example, using a pre-build script to include the necessary files in to the App target.
+1. "Main App(PostsApp) module" consists of necessary resources and configuration and also Login (currently, there is nothing for Login to implement, so didn't separate it for now).
+2. "PostsFeature module" consists of every thing what PostsFeature needs and will be configured by Main App as needed.
+3. "Utilities module" consists of the necessary dependancies required by most of the modules in the App like Networking, Coordinators, Logging etc.
 
 
-# Requirements
+## Develop Branch
 
-Xcode Version 11+ Swift 5.0+
-No 3rd party frameworks has been used in this project. 
+While the master branch displays how the setup can be splitted in to multiple projects to enabble scalability, the develop branch shows how the project can be modularised using a single project. 
 
 
-# Architecture
+## Installation
 
+As I have used no external frameworks for development, it is possible to download the app from the repository, build it and run.
