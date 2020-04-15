@@ -10,7 +10,7 @@ import Foundation
 
 public struct Post: Codable, Equatable {
     let userId: Int64
-    let id: Int64
+    public let id: Int64
     let title: String
     let body: String
 }
